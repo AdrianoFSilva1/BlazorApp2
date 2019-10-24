@@ -1,6 +1,4 @@
-﻿@foreach (var example in examples)
-{
-    <div id="rc-@ID">
+﻿<div id="rc-@ID">
         @(new MarkupString($@"<style>
                 #rc-{ID} {{
                     position: relative;
@@ -48,8 +46,6 @@
         <input name="low-range" type="range" min="@MinValue" max="@MaxValue" @bind="@ValueLow" @bind:event="oninput" />
         <input name="high-range" type="range" min="@MinValue" max="@MaxValue" @bind="@ValueHigh" @bind:event="oninput" />
     </div>
-}
-
 
 @code
 {
@@ -97,12 +93,4 @@
     [Parameter] public EventCallback<int> ValueLowChanged { get; set; }
     [Parameter] public EventCallback<int> ValueHighChanged { get; set; }
     string ID = Guid.NewGuid().ToString().Replace("-", "").Substring(15);
-
-    public List<Example> examples = new List<Example>()
-{
-        new Example("Example1"),
-        new Example("Example2"),
-        new Example("Example3"),
-        new Example("Example4"),
-    };
 }

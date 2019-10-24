@@ -4,10 +4,23 @@
 
 Welcome to your new app.
 
-<RangeControl @bind-ValueHigh="ValueHigh" @bind-ValueLow="ValueLow"></RangeControl>
-<span>@ValueLow</span>-<span>@ValueHigh</span>
+@foreach (var example in examples)
+{
+    <RangeControl @bind-ValueHigh="ValueHigh" @bind-ValueLow="ValueLow"></RangeControl>
+    <span>@ValueLow</span>
+    <span>@ValueHigh</span>
+}
+
 
 @code {
-    int ValueHigh=75;
-    int ValueLow=25;
+    int ValueHigh = 75;
+    int ValueLow = 25;
+
+    public List<Example> examples = new List<Example>()
+{
+        new Example("Example1"),
+        new Example("Example2"),
+        new Example("Example3"),
+        new Example("Example4"),
+    };
 }
