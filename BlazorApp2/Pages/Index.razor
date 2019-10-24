@@ -4,4 +4,10 @@
 
 Welcome to your new app.
 
-<input type="range" multiple value="0,100" />
+<RangeControl @bind-ValueHigh="ValueHigh" @bind-ValueLow="ValueLow"></RangeControl>
+<span>@ValueLow</span>-<span>@ValueHigh</span>
+
+@code {
+    int ValueHigh=75;
+    int ValueLow=25;
+}
